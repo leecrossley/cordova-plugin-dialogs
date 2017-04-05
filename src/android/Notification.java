@@ -33,7 +33,6 @@ import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
-import android.text.InputType;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -297,7 +296,6 @@ public class Notification extends CordovaPlugin {
                 promptInput.setTextColor(promptInputTextColor);
                 promptInput.setText(defaultText);
                 promptInput.setMaxLines(1);
-                promptInput.setInputType(InputType.TYPE_CLASS_PHONE);
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
