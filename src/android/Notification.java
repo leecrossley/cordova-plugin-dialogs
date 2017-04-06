@@ -319,8 +319,8 @@ public class Notification extends CordovaPlugin {
                         dlg.setNegativeButton(buttonLabels.getString(0),
                             new AlertDialog.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
                                     try {
+                                        dialog.dismiss();
                                         result.put("buttonIndex",1);
                                         result.put("input1", promptInput.getText().toString().trim().length()==0 ? defaultText : promptInput.getText());
                                     } catch (JSONException e) {
