@@ -299,6 +299,7 @@ public class Notification extends CordovaPlugin {
                 promptInput.setText(defaultText);
                 promptInput.setMaxLines(1);
                 promptInput.setSingleLine(true);
+                promptInput.setLongClickable(false);
                 promptInput.setInputType(InputType.TYPE_CLASS_TEXT);
                 InputFilter[] filters = new InputFilter[1];
                 filters[0] = new InputFilter.LengthFilter(64);
