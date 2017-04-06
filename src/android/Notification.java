@@ -36,6 +36,7 @@ import android.content.res.Resources;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -297,6 +298,7 @@ public class Notification extends CordovaPlugin {
                 promptInput.setText(defaultText);
                 promptInput.setMaxLines(1);
                 promptInput.setSingleLine(true);
+                promptInput.setInputType(InputType.TYPE_CLASS_TEXT);
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
