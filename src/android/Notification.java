@@ -296,6 +296,7 @@ public class Notification extends CordovaPlugin {
                 promptInput.setTextColor(promptInputTextColor);
                 promptInput.setText(defaultText);
                 promptInput.setMaxLines(1);
+                promptInput.setSingleLine(true);
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
