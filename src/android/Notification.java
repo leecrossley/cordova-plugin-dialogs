@@ -37,8 +37,6 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.text.InputType;
-import android.view.InputEvent;
-import android.view.KeyEvent;
 import android.widget.EditText;
 import android.text.InputFilter;
 import android.widget.TextView;
@@ -300,24 +298,12 @@ public class Notification extends CordovaPlugin {
                 promptInput.setTextColor(promptInputTextColor);
                 promptInput.setText(defaultText);
                 promptInput.setMaxLines(1);
+                promptInput.setSingleLine(true);
                 promptInput.setLongClickable(false);
                 promptInput.setInputType(InputType.TYPE_CLASS_TEXT);
-
                 InputFilter[] filters = new InputFilter[1];
                 filters[0] = new InputFilter.LengthFilter(64);
                 promptInput.setFilters(filters);
-
-                promptInput.setOnKeyListener(new OnKeyListener() {
-                    public boolean onKey(View v, int keyCode, KeyEvent event) {
-                        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                            InputMethodManager inputManager = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                            inputManager.hideSoftInputFromWindow(getApplicationWindowToken(), 0);
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
