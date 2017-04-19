@@ -300,10 +300,28 @@ public class Notification extends CordovaPlugin {
                 promptInput.setMaxLines(1);
                 promptInput.setSingleLine(true);
                 promptInput.setLongClickable(false);
+                promptInput.setTextIsSelectable(false);
                 promptInput.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                // Prevent share menu and copy/paste
+                promptInput.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+                    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+                        return false;
+                    }
+                    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+                        return false;
+                    }
+                    public boolean onActionItemClicked(ActionMode actionMode, MenuItem item) {
+                        return false;
+                    }
+                    public void onDestroyActionMode(ActionMode actionMode) {
+                    }
+                });
+
                 InputFilter[] filters = new InputFilter[1];
                 filters[0] = new InputFilter.LengthFilter(64);
                 promptInput.setFilters(filters);
+
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
